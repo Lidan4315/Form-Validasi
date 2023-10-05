@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Belajar Form Validation</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="box">
+      <h2>Biodata Diri</h2>
+      <form
+        name="formPendaftaran"
+        action="#"
+        method="post"
+        onsubmit="return validateForm()"
+      >
+        <div class="form-group">
+          <label>Nama</label>
+          <input
+            type="text"
+            name="nama"
+            placeholder="Nama lengkap"
+            class="form-control"
+            required
+            maxlength="40"
+            minlength="3"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Aktif"
+            class="form-control"
+          />
+          <small id="emailHelp" class="form-text"
+            >Email Akan Digunakan Untuk Mengirimkan Notifikasi.</small
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Jenis Kelamin</label>
+          <select name="gender" class="form-control">
+            <option value="0">Gender</option>
+            <option value="1">Laki-Laki</option>
+            <option value="2">Perempuan</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Tanggal Lahir</label>
+          <input
+            type="text"
+            name="Lahir"
+            id="dateofbirth"
+            placeholder="Tanggal/Bulan/Tahun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Agama</label>
+          <select name="Agama" class="form-control">
+            <option value="0">Pilih Agama</option>
+            <option value="1">Islam</option>
+            <option value="2">Kristen</option>
+            <option value="3">Katolik</option>
+            <option value="4">Hindu</option>
+            <option value="5">Budha</option>
+            <option value="6">Konghucu</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Alamat Lengkap</label>
+          <input
+            type="text"
+            name="Alamat"
+            placeholder="Alamat Lengkap"
+            class="form-control"
+            required
+            maxlength="70"
+            minlength="3"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Nomor Telepon</label>
+          <input
+            type="text"
+            name="nomor"
+            placeholder="Nomor yang dapat dihubungi"
+            class="form-control"
+            required
+            maxlength="15"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Status</label>
+          <input
+            type="text"
+            name="Status"
+            placeholder="Status sekarang"
+            class="form-control"
+            required
+            maxlength="15"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <script>
+      function validateForm() {
+        if (document.forms["formPendaftaran"]["nama"].value == "") {
+          alert("Nama Tidak Boleh Kosong");
+          document.forms["formPendaftaran"]["nama"].focus();
+          return false;
+        }
+        if (document.forms["formPendaftaran"]["email"].value == "") {
+          alert("Email Tidak Boleh Kosong");
+          document.forms["formPendaftaran"]["email"].focus();
+          return false;
+        }
+        if (document.forms["formPendaftaran"]["gender"].selectedIndex < 1) {
+          alert("Jenis Kelamin Tidak Boleh Kosong");
+          document.forms["formPendaftaran"]["gender"].focus();
+          return false;
+        }
+        if (document.forms["formPendaftaran"]["Lahir"].value == "") {
+          alert("Tanggal Lahir Tidak Boleh Kosong");
+          document.forms["formPendaftaran"]["Lahir"].focus();
+          return false;
+        }
+        if (document.forms["formPendaftaran"]["Alamat"].value == "") {
+          alert("Alamat Tidak Boleh Kosong");
+          document.forms["formPendaftaran"]["Alamat"].focus();
+          return false;
+        }
+        if (document.forms["formPendaftaran"]["nomor"].value == "") {
+          alert("Nomor Telepon Tidak Boleh Kosong");
+          document.forms["formPendaftaran"]["nomor"].focus();
+          return false;
+        }
+        if (document.forms["formPendaftaran"]["Agama"].selectedIndex < 1) {
+          alert("Pilih Agama.");
+          document.forms["formPendaftaran"]["Agama"].focus();
+          return false;
+        }
+        if (document.forms["formPendaftaran"]["Status"].selectedIndex < 1) {
+          alert("Pilih Jurusan.");
+          document.forms["formPendaftaran"]["Status"].focus();
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
